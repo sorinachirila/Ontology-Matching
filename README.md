@@ -48,7 +48,7 @@ SELECT ?obj WHERE {
  - Edit Distance
  - Jaccard Distance
  - Damerau-Levenshtein Edit Distance
-   We repeat this procedures for the other text and get the final outputs.
+ - We repeat this procedures for the other text and get the final outputs.
 
 5. Final step is to write the interpretations regarding the matching between DBpedia and Wikidata.
 

@@ -2,9 +2,9 @@
 Study: DBpedia and Wikidata
 
 # Scenario:
-DBPedia and Wikidata are Linked Open Data projects, and at first sight it seems that they are very similar, but in fact they have absolutely different approaches to deal with structured data. DBPedia extracts data from the infoboxes in Wikipedia, while Wikidata is more like Wikipedia for data—its primary source of information are users. Wikipedia itself replaces old infoboxes by Wikidata, so DBPedia could use Wikidata as a data provider and editing interface. But there is a problem of heterogeneity. Both projects use different tools and knowledge, and it leads to usage of different names for the same concepts (terminological heterogeneity). And it’s important to accurately wire up those concepts in ontologies of projects. One of the principles of Linked Data: “Include links to other URIs, so that they can discover more things.”
+DBpedia and Wikidata are Linked Open Data projects, and at first sight it seems that they are very similar, but in fact they have absolutely different approaches to deal with structured data. DBpedia extracts data from the infoboxes in Wikipedia, while Wikidata is more like Wikipedia for data—its primary source of information are users. Wikipedia itself replaces old infoboxes by Wikidata, so DBPedia could use Wikidata as a data provider and editing interface. But there is a problem of heterogeneity. Both projects use different tools and knowledge, and it leads to usage of different names for the same concepts (terminological heterogeneity). And it’s important to accurately wire up those concepts in ontologies of projects. One of the principles of Linked Data: “Include links to other URIs, so that they can discover more things.”
 
-The goal of the project is to create a system that maps items and properties of Wikidata to classes and properties of DBPedia.
+The goal of the project is to create a system that maps items and properties of Wikidata to classes and properties of DBpedia.
 
 Here is an example for properties, that is location
  - https://www.wikidata.org/wiki/Property:P276

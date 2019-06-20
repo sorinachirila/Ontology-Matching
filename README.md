@@ -16,7 +16,8 @@ Here is an example for items and classes , that is Berlin
 
  
 Steps to follow for Berlin:
-1. Run a SPARQl Query, against DBpedia Virtuoso endpoint, to get all owl:sameAs resources and select from there, the one from Wikidata
+1. Run a SPARQl Query, against DBpedia Virtuoso endpoint (https://dbpedia.org/sparql),
+   to get all owl:sameAs resources and select from there, the one from Wikidata
 
 PREFIX owl:<http://www.w3.org/2002/07/owl#>
 
@@ -24,52 +25,34 @@ SELECT ?obj WHERE {
     dbpedia:Berlin (owl:sameAs|^owl:sameAs)* ?obj
 }
  
-2. Implement a class Course with the following private fields
- - int id
- - String name
- - add constructors (default, with all arguments), getters and setters
- - override equals and hashCode as Course will be part of a Set
+2. From DBpedia page extract information as:
+ - rdfs:label ---> Berlin (en)
+ - rdfs:comment --> Berlin (/bərˈlɪn/, German: [bɛɐ̯ˈliːn] ) is the capital and the largest city of Germany as well as one of its 16 states. With a population of approximately 3.6 million people, Berlin is the second most populous city proper and the seventh most populous urban area in the European Union. Located in northeastern Germany on the banks of Rivers Spree and Havel, it is the centre of the Berlin-Brandenburg Metropolitan Region, which has about 6 million residents from more than 180 nations. Due to its location in the European Plain, Berlin is influenced by a temperate seasonal climate. Around one-third of the city's area is composed of forests, parks, gardens, rivers and lakes. (en) 
  
-3. Implement a class <Teacher> with the following private fields
- - int id 
- - String name
- - Set Course courses (will be a HashSet)
- - add constructors (default, with all arguments), getters and setters
- - override equals and hashCode as Course will be part of a Set
- - add following methods: 
-   - Set <Course> getCourses()
-   - Course getCourse(int id)
-   - setCourses (Set<Course>)
-   - addCourser(Course)
-   - updateCourse(Course)
-   - removeCourse(Course)
-4. Implement a class <Group> with the following private fields
- - int id
- - String name
- - Set Teacher teachers (will be a HashSet)
- - Set Student students (will be a HashSet)
- - add constructors (default, with all arguments), getters and setters
- - override equals and hashCode as <Group> will be part of a Set
- - add following methods;
-   - Set <Teacher> getTeachers()
-   - Teacher getTeacher(int id)
-   - setTeachers (Set <Teacher>)
-   - addTeacher(Teacher)
-   - updateTeacher(Teacher, String teacherName)
-   - removeTeacher(Teacher)
-   - Set <Student> getStudents()
-   - Student getStudent(int id)
-   - setStudents (Set <Student>)
-   - addStudent(Student)
-   - updateStudent(Student, String studentName)
-   - removeStudent(Student)
-5. Implement a class Application with the following private fields 
-  - Set Group groups (will be a HashSet)
-  - add a main method where you should add 2 Groups to the set of groups 
-  - each Group should have 4 Teachers
-  - each Group should have 3 Students
-  - each Teacher should teach 2 Courses
-  - display information for all the groups in a friendly format 
+3. From Wikidata page extract information as:
+ - label --> Berlin 
+ - aliases --> Berlin, Germany
+ - description --> capital and largest city of Germany
+ - To obtain the description you can also run a SPARQL Query against Wikidata endpoint(https://query.wikidata.org/)
+ PREFIX wd: <http://www.wikidata.org/entity/>
+ PREFIX schema: <http://schema.org/>
 
-Question: why is better to store Teachers for example in a Set and not in a List?
+ SELECT ?o
+ WHERE 
+ {
+  wd:Q64 schema:description ?o.
+  FILTER ( lang(?o) = "en" )
+ }
+4. Next, for example, we get the two values for labels. First, we apply preprocessing methods. 
+   The results are the used for matching methods as: 
+ - Edit Distance
+ - Jaccard Distance
+ - Damerau-Levenshtein Edit Distance
+   We repeat this procedures for the other text and get the final outputs.
+
+5. Final step is to write the interpretations regarding the matching between DBpedia and Wikidata.
+
+Useful links from:
+  - GSoC(Google Summer of Code) 2014: https://docs.google.com/document/d/16lAqKLAsAGQW0cp9SA0Egb1vlb6mPCcHYezVN-zB870/edit#
+  - Natural Language Processing, Stanford University course: http://web.stanford.edu/class/cs224n/
 

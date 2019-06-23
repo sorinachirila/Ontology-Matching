@@ -47,7 +47,7 @@ SELECT ?obj WHERE {
   FILTER ( lang(?o) = "en" )
  }
 4. Next, for example, we get the two values for labels. First, we apply preprocessing methods. 
-   The results are the used for matching methods as: 
+   The results are then used for matching methods as: 
  - Edit Distance
  - Jaccard Distance
  - Damerau-Levenshtein Edit Distance

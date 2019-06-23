@@ -37,8 +37,8 @@ SELECT ?obj WHERE {
  - aliases --> Berlin, Germany
  - description --> capital and largest city of Germany
  - To obtain the description you can also run a SPARQL Query against Wikidata endpoint(https://query.wikidata.org/)
- PREFIX wd: <http://www.wikidata.org/entity/>
- PREFIX schema: <http://schema.org/>
+ PREFIX wd:< http://www.wikidata.org/entity/ >
+ PREFIX schema: < http://schema.org/ >
 
  SELECT ?o
  WHERE 

@@ -21,8 +21,8 @@ Here is an example for items and classes , that is Berlin
 Steps to follow for Berlin:
 1. Run a SPARQl Query, against DBpedia Virtuoso endpoint (https://dbpedia.org/sparql),
    to get all owl:sameAs resources and select from there, the one from Wikidata
-
-PREFIX owl:<http://www.w3.org/2002/07/owl#>
+PREFIX dbpedia:< http://dbpedia.org/resource/ >
+PREFIX owl:< http://www.w3.org/2002/07/owl# >
 
 SELECT ?obj WHERE {
     dbpedia:Berlin (owl:sameAs|^owl:sameAs)* ?obj
